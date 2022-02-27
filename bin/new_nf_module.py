@@ -95,14 +95,29 @@ def body(args: Args) -> str:
     """ The program template """
 
     today = str(date.today())
+    process_name = os.path.splitext(os.path.basename(args.program))[0]
 
-    return f"""\"\"\"
+    return f"""/*
 Author : {args.name}{' <' + args.email + '>' if args.email else ''}
 Date   : {today}
 Purpose: {args.purpose}
-\"\"\"
+*/
 
+process {process_name} {{
+    tag \"\"
 
+    container \'\'
+
+    publishDir \"\", mode: \'copy\', pattern: \'\'
+
+    input:
+
+    output:
+
+    script:
+        \"\"\"
+        \"\"\"
+}}
 """
 
 
